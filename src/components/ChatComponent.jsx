@@ -5,6 +5,7 @@ import ChatSideBar from "./ChatSideBar";
 
 const ChatComponent =({socket}) => {
     const [messages,setMessages] = useState([]);
+    const [users,setUsers] = useState([]);
     useEffect(() => {
         socket.on("messageResponse", data => setMessages([...messages,data]));
     },[messages,socket]);
@@ -12,10 +13,10 @@ const ChatComponent =({socket}) => {
     return (
         <div className="chat-container">
             <div className="sideBar">
-                <ChatSideBar socket ={socket} />    
+                <ChatSideBar socket ={socket} users={users} setUsers={setUsers}/>    
             </div>
             <div className="chat">
-                <ChatBody messages={messages}/>
+                <ChatBody messages={messages} socket={socket} users={users} setUsers={setUsers}/>
                 <ChatFooter socket={socket}/>
             </div>
         </div>

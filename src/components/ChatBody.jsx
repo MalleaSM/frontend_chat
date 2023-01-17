@@ -1,10 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ChatBody =({messages}) => {
+const ChatBody =({messages, socket, users, setUsers}) => {
     const navigate = useNavigate();
+
     const leaveChat = () => {
+        const userName = localStorage.getItem("userName");
+        setUsers(users.filter(user => user.userName !== userName))
         localStorage.removeItem("userName");
+        socket.emit("removeUser",socket.id);
         navigate('/');
         window.location.reload();
     };
