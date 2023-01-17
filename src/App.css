@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.chat-header{
+  background: darkgray;
+  color: whitesmoke;
+}
+
+.chat-container{
+  border: 2px solid black;
+  margin-top: 20px;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.signOutBtn {
+  float: right;
+}
+
+.message-input{
+  width: 87%;
+}
+.sideBar{
+  padding-right: 30px;
+  border-right: 2px solid;
+}
+.chat{
+  width: 100%;
+}
